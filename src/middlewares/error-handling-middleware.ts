@@ -39,6 +39,4 @@ export function handleApplicationErrors(err: ApplicationError | Error, _req: Req
     error: "InternalServerError",
     message: "Internal Server Error",
   });
-
-  next();
 }
