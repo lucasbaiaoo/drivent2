@@ -20,11 +20,16 @@ async function findTicketByEnrollmentId(enrollmentId: number) {
     });
 }
 
+async function findTicketTypes() {
+    return prisma.ticketType.findMany();
+  }
+
 export type CreateTicketParams = Omit<Ticket, "id" | "createdAt" | "updatedAt">
 
 const ticketRepository = {
     createTicket,
-    findTicketByEnrollmentId
+    findTicketByEnrollmentId,
+    findTicketTypes
 };
 
 export default ticketRepository;

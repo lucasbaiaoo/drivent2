@@ -39,9 +39,20 @@ async function getTicketByUserId(userId: number){
     return ticket;
 }
 
+async function getTicketTypes() {
+    const ticketTypes = await ticketRepository.findTicketTypes();
+
+    if(!ticketTypes) {
+        throw notFoundError();
+    }
+
+    return ticketTypes;
+}
+
 const ticketService = {
     createTicket,
-    getTicketByUserId
+    getTicketByUserId,
+    getTicketTypes
 };
 
 export default ticketService;
